@@ -6,15 +6,15 @@ class Cart:
         self.price=price
         self.action=action
 #updating stock
-    def new_stock_levels(self,new_product):
+    def update_new_stock(self,new_product):
         self.product_name=new_product
 # updating stock quantity
-    def Quantity_products(self,new_quantity):
+    def update_quantity(self,new_quantity):
         self.quantity=new_quantity
 # updating prices for goods
-    def pricing(self, new_price):
+    def update_pricing(self, new_price):
         self.price=new_price
-    def update_action(self,needed_action):
-       self.action=needed_action
+    def update_action(self,new_action):
+       self.action=new_action
     def __str__(self):
         return f"{self.product_name},{self.quantity},{self.price},{self.action}"
