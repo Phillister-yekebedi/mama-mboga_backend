@@ -1,42 +1,27 @@
-
 class Cart:
-    def __init__(self, product_name, quantity, price, action):
-        self.product_name = product_name
-        self.quantity = quantity
-        self.price=price
-        self.action=action
-
-    def update_new_stock(self,new_product):
-        self.product_name=new_product
-
-    def update_quantity(self,new_quantity):
-        self.quantity=new_quantity
-
-    def update_pricing(self, new_price):
-        self.price=new_price
-    def update_action(self,new_action):
-       self.action=new_action
-    def __str__(self):
-        return f"{self.product_name},{self.quantity},{self.price},{self.action}"
-    
-    def add_item(self, product, quantity):
-        for item in self.items:
-            if item.product.id == product.id:
-                item.quantity += quantity
-                return
-        item = Cart_Item(product, quantity)
-        self.items.append(item)
-
-    def remove_item(self, item):
-        self.items.remove(item)
-
-    def update_quantity(self, item, quantity):
-        item.quantity = quantity
-
-    def get_total_items(self):
-        total_items = sum(item.quantity for item in self.items)
-        return total_items
-    
-    def calculate_total_price(self):
-        total_price = sum(item.product.price * item.quantity for item in self.items)
-        return total_price    
+    def __init__(self):
+        self.inventory = {"fruits": {}, "vegitables": {}}
+    def add_product(self, category, product_name, price, quantity):
+        if category in self.inventory:
+            if product_name in self.inventory[category]:
+                self.inventory[category][product_name]["price"] = price
+                self.inventory[category][product_name]["quantity"] += quantity
+            else:
+                self.inventory[category][product_name] = {"price": price, "quantity": quantity}
+        else:
+            self.inventory[category] = {product_name: {"price": price, "quantity": quantity}}
+    def remove_product(self, category, product_name):
+        if category in self.inventory and product_name in self.inventory[category]:
+            del self.inventory[category][product_name]
+    def update_product_quantity(self, category, product_name, quantity):
+        if category in self.inventory and product_name in self.inventory[category]:
+            self.inventory[category][product_name]["quantity"]= quantity
+cart1 = Cart()
+cart2 = Cart()
+cart1.add_product("fruits", "mangoes", 3, 40)
+cart2.add_product("vegitables", "sukuma", 20, 2)
+cart2.add_product("vegitable", "cabbage", 10, 6)
+cart2.remove_product("vegetables", "Kales")
+cart2.update_product_quantity("vegitables", "sukuma", 4)
+print(cart1.inventory)
+print(cart2.inventory)
