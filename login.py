@@ -2,9 +2,7 @@ class User:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-
-
-class Login:
+        
     def __init__(self):
         self.users = []
     
@@ -16,7 +14,6 @@ class Login:
     def login_user(self, username, password):
         for user in self.users:
             if user.username == username and user.password == password:
-                print("Login successful!")
-                return True
-        print("Invalid username or password.")
-        return False
+                print("Your account login was successful!")
+        else:       
+          print("The password or username you have enterd is incorrect please try again.")
