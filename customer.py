@@ -9,8 +9,5 @@ class Registration:
 
     def get_customer_details(self) :
          return(f"firstName:{self.first_name},lastName:{self.last_name}")   
-    
-    def password_reset(self,newPassword):
-        self.password = newPassword
-        return (f"Your NewPassword {self.password}")
-    
+         return( f" your name is firstName:{self.first_name},lastName:{self.last_name}and you have just created an account with us")   
+
