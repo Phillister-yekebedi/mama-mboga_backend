@@ -21,7 +21,7 @@ class User:
             print("Login was successful!")
         else:
             print("Invalid username or password.")
-##Instances of a user registering
+##Instances of a user registering in mama mboga app
 user1 = User("customer", "Ruth", "password123", "awinoruthh@gmail.com")
 user1.register()
 user2 = User("seller", "Awino", "password456", "awinocaren@gmail.com")
