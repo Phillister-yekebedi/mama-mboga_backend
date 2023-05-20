@@ -12,7 +12,11 @@ class Create_account :
            
          return( f" your name is firstName:{self.first_name},lastName:{self.last_name}and you have just created an account with us")   
 
+<<<<<<< HEAD
      
+=======
+         return( f" your name is firstName:{self.first_name},lastName:{self.last_name}and you have just created an account with us")   
+>>>>>>> main
     
   
     
