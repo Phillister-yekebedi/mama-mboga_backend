@@ -1,36 +1,15 @@
-class Payments:
-    def __init__(self,name,amount, account_number):
-        self.name = name
-        self.amount  = amount
-        self.accout_number = account_number
-        # self.payment_status = pending
-    def confirm_payment(self):
-        print (f"{self.name} your payment is successful")
-    def payment_refund_comfirmation(self):
-        print (f"{self.name}your refund of{self.amount}is successful")
 
-class MpesaPaymentGateway:
-    def process_payment(self, amount, phone_number, pin):
-               if self.validate_pin(pin):
-                       if self.check_balance(amount):
-                        self.deduct_amount(amount)
-                        return True
-                       else:  
-                            return False
-                       
-    def validate_pin(self, pin):
-        return True
-    def check_balance(self, amount):
-        return True
-    def deduct_amount(self, amount):
-        print(f"Deducted KES {amount} from user's M-Pesa account.")
 class Order:
     def __init__(self, order_number, customer_name, total_price):
         self.order_number = order_number
         self.customer_name = customer_name
         self.total_price = total_price
         self.is_paid = False
+
     def process_payment(self, payment_gateway, phone_number, pin):
+        self.payment_gateway = payment_gateway
+        self.phone_number = phone_number
+        self.pin = pin
         if not self.is_paid:
             success = payment_gateway.process_payment(self.total_price, phone_number, pin)
             if success:
@@ -41,4 +20,11 @@ class Order:
         else:
             print("Order has already been paid.")
             return False
-    
+        
+        
+order1 = Order(1, "John Doe", 100.0)
+print("Order Number:", order1.order_number)
+print("Customer Name:", order1.customer_name)
+print("Total Price:", order1.total_price)
+print("Is Paid:", order1.is_paid)
+            
