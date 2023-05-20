@@ -19,7 +19,7 @@ class Cart:
             del self.inventory[category][product_name]
             return f"{product_name} removed from {category} category"
         elif category not in self.inventory:
-            return f"{category} category does not exist"
+            return f"{category} category does not exist."
         else:
             return f"{product_name} does not exist in {category} category"
     def update_product_quantity(self, category, product_name, quantity):
@@ -27,7 +27,7 @@ class Cart:
             self.inventory[category][product_name]["quantity"]= quantity
             return f"{product_name} quantity updated to {quantity} in {category} category"
         elif category not in self.inventory:
-            return f"{category} category does not exist"
+            return f"{category} category does not exist."
         else:
             return f"{product_name} does not exist in {category} category"
 cart1 = Cart()
