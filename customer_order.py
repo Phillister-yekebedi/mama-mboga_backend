@@ -7,7 +7,7 @@ class OrderItem:
     def __init__(self, product, quantity):
         self.product = product
         self.quantity = quantity
-class Order:
+class Recieved:
     def __init__(self, order_number, customer_name):
         self.order_number = order_number
         self.customer_name = customer_name
@@ -27,7 +27,7 @@ class Customer:
         return next((order for order in self.orders if order.order_number == order_number), None)
 #instances
 product1 = Product(1, "kales", 20)
-order1 = Order(1, "Faith")
+order1 = Recieved(1, "Faith")
 order1.add_item(product1, 5)
 customer1 = Customer(1, "Lindsay")
 customer1.place_order(order1)
