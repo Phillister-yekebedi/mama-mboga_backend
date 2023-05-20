@@ -15,7 +15,7 @@ class payment:
             success = payment_gateway.process_payment(self.total_price, phone_number, pin)
             if success:
                 self.is_paid = True
-                return True, "Payment processed successfully."
+                return True, "Payment processed successfully.."
             else:
                 return False, "Payment processing failed."
         else:
