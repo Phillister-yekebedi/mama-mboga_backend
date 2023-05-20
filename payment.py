@@ -1,5 +1,6 @@
 
-class Order:
+
+class payment:
     def __init__(self, order_number, customer_name, total_price):
         self.order_number = order_number
         self.customer_name = customer_name
@@ -14,17 +15,15 @@ class Order:
             success = payment_gateway.process_payment(self.total_price, phone_number, pin)
             if success:
                 self.is_paid = True
-                return True
+                return True, "Payment processed successfully."
             else:
-                return False
+                return False, "Payment processing failed."
         else:
-            print("Order has already been paid.")
-            return False
+            return False, "Order has already been paid."
         
         
-order1 = Order(1, "John Doe", 100.0)
+order1 = payment(1, "Yvonne Atieno", 200.0)
 print("Order Number:", order1.order_number)
 print("Customer Name:", order1.customer_name)
 print("Total Price:", order1.total_price)
 print("Is Paid:", order1.is_paid)
-            
