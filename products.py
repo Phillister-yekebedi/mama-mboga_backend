@@ -1,3 +1,4 @@
+
 class Cart:
     def __init__(self):
         self.inventory = {"fruits": {}, "vegitables": {}}
@@ -38,7 +39,3 @@ cart2.remove_product("vegetables", "Kales")
 cart2.update_product_quantity("vegitables", "sukuma", 4)
 print(cart1.inventory)
 print(cart2.inventory)
-
-
-
-
