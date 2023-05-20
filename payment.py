@@ -1,6 +1,6 @@
 
 
-class payment:
+class Payment:
     def __init__(self, order_number, customer_name, total_price):
         self.order_number = order_number
         self.customer_name = customer_name
@@ -22,7 +22,7 @@ class payment:
             return False, "Order has already been paid."
         
         
-order1 = payment(1, "Yvonne Atieno", 200.0)
+order1 = Payment(1, "Yvonne Atieno", 200.0)
 print("Order Number:", order1.order_number)
 print("Customer Name:", order1.customer_name)
 print("Total Price:", order1.total_price)
